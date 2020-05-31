@@ -9,7 +9,7 @@ const businessesApi = {
 
       return response?.data;
     } catch (e) {
-        console.log('Error Details: ',e.toJson())
+        console.log('Error Details: ',JSON.stringify(e))
       throw e;
     }
   },

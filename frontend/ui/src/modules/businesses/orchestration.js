@@ -9,7 +9,7 @@ export const loadBusinesses = () => async (dispatch, getState) => {
         dispatch(businessesActions.FETCH_BUSINESSES_SUCCESS())
         dispatch(businessesActions.SET_BUSINESSES(createBusinesses(businesses)))
     } catch (e) {
-        console.log(`Error : Unable to fetch businesses : + ${e} Details: `,e.toJson())
+        console.log(`Error : Unable to fetch businesses : + ${e} Details: `,JSON.stringify(e))
         dispatch(businessesActions.FETCH_BUSINESSES_FAILURE());
     }
 }
