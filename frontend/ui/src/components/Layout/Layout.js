@@ -4,6 +4,7 @@ import createHistory from 'history/createBrowserHistory';
 import { SignIn } from '../Account/SignIn/SignIn';
 import { Account } from '../Account/Account';
 import { SignUp } from '../Account/SignUp/SignUp';
+import { Dashboard } from '../Dashboard/Dashboard';
 
 export const history = createHistory();
 
@@ -15,6 +16,7 @@ export const Layout = () => {
 				<Switch>
 					<Route path="/" component={() => <Account><SignIn /></Account>} exact={true} />
 					<Route path="/signUp" component={() => <Account><SignUp /></Account>} exact={true} />
+					<Route path="/dashboard" component={() => <Dashboard />} exact={true} />
 				</Switch>
 			</div>
 		</Router>
