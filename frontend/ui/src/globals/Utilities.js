@@ -12,7 +12,7 @@ export const assignToField = (field, value) => (state, { payload }) => { set(sta
  * @param  {...any} args
  */
 export const composeReducer = (...args) => (state, action) => {
-   args.forEach((arg) => {
-      arg(state, action);
-   });
+  args.forEach((arg) => {
+    arg(state, action);
+  });
 };

@@ -1,5 +1,6 @@
-import axios from 'axios'
-const getFetchBusinessesUrl = () => `http://127.0.0.1:8000/api/businesses/`;
+import axios from 'axios';
+
+const getFetchBusinessesUrl = () => 'http://127.0.0.1:8000/api/businesses/';
 
 const businessesApi = {
   tryFetchBusinesses: async () => {
@@ -9,7 +10,6 @@ const businessesApi = {
 
       return response?.data;
     } catch (e) {
-        console.log('Error Details: ',JSON.stringify(e))
       throw e;
     }
   },
