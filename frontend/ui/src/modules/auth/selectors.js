@@ -1,14 +1,11 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const getUserId = state => state.auth.user.id;
+export const getUserName = state => state.auth.user.name;
 export const getUserEmail = state => state.auth.user.email;
-// export const getSaveCreditCardCheckbox = state => state.creditCards.saveCreditCardCheckbox;
-// export const getIsDirty = state => state.creditCards.isDirty;
-// export const getHasSavedCreditCards = createSelector(
-//   state => state.creditCards.cards.allIds,
-//   cards => cards.length > 0,
-// );
-// export const getSelectedCreditCard = createSelector(
-//   [getSavedCreditCards, getSelectedCreditCardId],
-//   (creditCards, cardId) => creditCards[cardId],
-// );
+export const getUserToken = state => state.auth.user.token;
+export const getPassword = state => state.auth.user.password;
+
+export const getFormUserName = state => state.auth.form.name;
+export const getFormUserEmail = state => state.auth.form.email;
+export const getFormPassword = state => state.auth.form.password;
+export const getFormConfirmPassword = state => state.auth.form.confirmPassword;
