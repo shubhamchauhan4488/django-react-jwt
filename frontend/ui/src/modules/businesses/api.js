@@ -3,10 +3,13 @@ import axios from 'axios';
 const getFetchBusinessesUrl = () => 'http://127.0.0.1:8000/api/businesses/';
 
 const businessesApi = {
-  tryFetchBusinesses: async () => {
+  tryFetchBusinesses: async (token) => {
     try {
       const url = getFetchBusinessesUrl();
-      const response = await axios.get(url);
+      const headers = {
+        'Authorization': `Token ${token}`,
+      };
+      const response = await axios.get(url, { headers });
 
       return response?.data;
     } catch (e) {
