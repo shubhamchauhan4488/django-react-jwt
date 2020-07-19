@@ -1,14 +1,14 @@
 from rest_framework import viewsets, permissions
 from businesses.models import Business, OperatingHours
 from .serializers import BusinessSerializer, OperatingHoursSerializer
+from rest_framework.response import Response
 
-# Business viewset :
+# viewset :
 # Helps to create a basic CRUD api without having to specify explicitly GET POST PUT etc
 
 
 class BusinessViewSet(viewsets.ModelViewSet):
     # queryset = Business.objects.all()  # query that gets all the businesses
-
     permission_classes = [
         permissions.IsAuthenticated,
     ]
@@ -33,9 +33,16 @@ class OperatingHoursViewSet(viewsets.ModelViewSet):
     ]
     serializer_class = OperatingHoursSerializer
 
-    def get_queryset(self):
-        print('selfkwargs', self.kwargs['id'])
-        queryset = OperatingHours.objects.filter(
-            business_id=self.kwargs['id'])
-        print('queryset', queryset)
-        return queryset
+    def retrieve(self, request, *args, **kwargs):
+        # The Primary Key of the object is passed to the retrieve method through self.kwargs
+        object_id = self.kwargs['pk']
+        operating_hours = OperatingHours.objects.filter(business_id=object_id)
+        # many=true for .data is going to be a list and we want to serialize every item
+        return Response({
+            'operatingHours': OperatingHoursSerializer(operating_hours, many=True).data,
+        })
+
+    # def get_queryset(self):
+    #     object_id = self.kwargs['pk']
+    #     queryset = OperatingHours.objects.filter(business=7)
+    #     return queryset
