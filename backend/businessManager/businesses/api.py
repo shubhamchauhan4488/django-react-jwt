@@ -38,9 +38,7 @@ class OperatingHoursViewSet(viewsets.ModelViewSet):
         object_id = self.kwargs['pk']
         operating_hours = OperatingHours.objects.filter(business_id=object_id)
         # many=true for .data is going to be a list and we want to serialize every item
-        return Response({
-            'operatingHours': OperatingHoursSerializer(operating_hours, many=True).data,
-        })
+        return Response(OperatingHoursSerializer(operating_hours, many=True).data)
 
     # def get_queryset(self):
     #     object_id = self.kwargs['pk']
