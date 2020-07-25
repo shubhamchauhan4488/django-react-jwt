@@ -1,1 +1,6 @@
-export { reducer, businessesActions } from './slice';
+export {
+   reducer,
+   businessHours,
+   businessesActions,
+   businessHoursActions
+} from './slice';
