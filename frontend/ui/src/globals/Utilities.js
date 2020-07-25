@@ -16,3 +16,11 @@ export const composeReducer = (...args) => (state, action) => {
     arg(state, action);
   });
 };
+
+export const convert24To12hrformat = hour => {
+  if (!hour) return
+  if (hour === 12) return '12 pm';
+  if (hour === 24) return '12 am';
+  if (hour > 12) return `${hour % 12} pm`;
+  return `${hour % 12} am`;
+}
