@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './../../assets/ToolBoxLogo.png';
 import { Flex } from 'reflexbox';
-import { Image, Heading } from 'rebass';
+import { Image, Heading, Button } from 'rebass';
 
 export const Header = () => (
   <>
@@ -9,7 +9,7 @@ export const Header = () => (
       justifyContent="center"
       width="100%"
       height="80px"
-      backgroundColor="#4A90E2"
+      backgroundColor="black"
     >
       <Flex
         justifyContent="space-between"
@@ -22,16 +22,17 @@ export const Header = () => (
         <Image
           src={logo}
           sx={{
-            width: ['60px', '50px', '60px'],
-            height: ['60px', '50px', '60px'],
+            width: ['50px', '60px', '60px'],
+            height: ['50px', '60px', '60px'],
           }}
         />
-        <Heading
-          fontSize={[4, 3, 3]}
-          color="white"
+        <Flex
+          alignItems="center"
+          justifyContent='flex-end'
         >
-          Login/SignUp
-        </Heading>
+          <Button variant='primary' mr={2}>Login</Button>
+          <Button variant='outline' >Sign Up</Button>
+        </Flex>
       </Flex>
     </Flex>
   </>

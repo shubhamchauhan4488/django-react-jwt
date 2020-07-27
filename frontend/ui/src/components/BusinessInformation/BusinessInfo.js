@@ -1,6 +1,6 @@
 import React from "react";
 import { useBusinessInfo } from "../../modules/businesses/hooks";
-import { Heading } from "rebass";
+import { Heading, Button } from "rebass";
 import { Flex } from "reflexbox";
 import { Alert } from "../shared/Alert/Alert";
 import { BusinessHours } from "./BusinessHours";
@@ -43,6 +43,7 @@ export const BusinessesInfo = () => {
       </Flex>
       <BusinessDescription />
       <BusinessHours />
+      <Button variant='primary' mr={2}>Book Now</Button>
     </>
   );
 };
